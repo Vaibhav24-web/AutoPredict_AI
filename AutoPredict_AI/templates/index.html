@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoPredict AI | Used Car Valuation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head><body>
+<nav><div class="brand"><b>A</b><div><strong>AutoPredict<span> AI</span></strong><small>USED CAR INTELLIGENCE</small></div></div><div class="online">● MODEL ONLINE</div></nav>
+<main>
+<section class="hero"><div><label>AI-POWERED VEHICLE VALUATION</label><h1>Know what your<br><em>car is worth.</em></h1><p>Enter vehicle specifications and get an instant estimated used-car price powered by your tuned Random Forest model.</p><div class="tags"><i>Random Forest</i><i>R² 93.30%</i><i>Real-time prediction</i></div></div><div class="orb"><span>🚘</span><small>AI<br>VALUATION</small></div></section>
+
+<section class="stats">
+<div><b>R²</b><small>MODEL ACCURACY</small><strong>93.30%</strong></div>
+<div><b>₹</b><small>MEAN ABSOLUTE ERROR</small><strong>₹70.9K</strong></div>
+<div><b>RM</b><small>RMSE</small><strong>₹121.2K</strong></div>
+<div><b>ML</b><small>MODEL</small><strong>Random Forest</strong></div>
+</section>
+
+<section class="grid">
+<div class="panel"><div class="head"><div><label>01 / VEHICLE INPUT</label><h2>Tell us about the car</h2></div><span>13 FEATURES</span></div>
+<form id="form"><div class="fields">
+<label>Brand<input name="brand" value="Toyota" required></label>
+<label>Year<input name="year" type="number" value="2020" required></label>
+<label>Kilometers Driven<input name="km_driven" type="number" value="45000" required></label>
+<label>Mileage (kmpl)<input name="mileage" type="number" step=".1" value="18.5" required></label>
+<label>Engine (CC)<input name="engine" type="number" value="1197" required></label>
+<label>Max Power (bhp)<input name="max_power" type="number" step=".1" value="82" required></label>
+<label>Torque (Nm)<input name="torque" type="number" step=".1" value="113" required></label>
+<label>Seats<input name="seats" type="number" value="5" required></label>
+<label>Owner<select name="owner"><option>First Owner</option><option>Second Owner</option><option>Third Owner</option><option>Fourth & Above Owner</option><option>Test Drive Car</option></select></label>
+<label>Seller Type<select name="seller_type"><option>Individual</option><option>Dealer</option><option>Trustmark Dealer</option></select></label>
+<label>Fuel<select name="fuel"><option>Petrol</option><option>Diesel</option><option>CNG</option><option>LPG</option><option>Electric</option></select></label>
+<label>Transmission<select name="transmission"><option>Manual</option><option>Automatic</option></select></label>
+</div><button>Generate AI Valuation <b>→</b></button></form></div>
+
+<div class="panel result"><label>02 / AI OUTPUT</label><div class="answer"><div class="icon">✦</div><h3>Your estimated price</h3><div id="price">₹—</div><p id="msg">Fill the vehicle details and run the model to generate a valuation.</p></div>
+<div class="details"><p><span>MODEL</span><b>Tuned Random Forest</b></p><p><span>R² SCORE</span><b>0.9330</b></p><p><span>CAR AGE</span><b id="age">—</b></p></div>
+<div class="bar"><div><span>Model performance</span><b>93.30%</b></div><hr><small>R² measured on the held-out test set.</small></div></div>
+</section>
+
+<section class="insights"><article><em>01</em><h3>Feature-aware</h3><p>Uses age, mileage, engine specifications, ownership, fuel, seller and transmission information.</p></article><article><em>02</em><h3>Same preprocessing</h3><p>The saved preprocessing pipeline from training is applied before every prediction.</p></article><article><em>03</em><h3>Instant inference</h3><p>The trained model loads once when Flask starts; opening the app does not retrain it.</p></article></section>
+</main><footer><b>AutoPredict AI</b><span>Machine Learning • Used Car Price Prediction</span></footer>
+<script src="{{url_for('static',filename='script.js')}}"></script>
+</body></html>
